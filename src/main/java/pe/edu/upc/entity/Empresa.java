@@ -28,7 +28,7 @@ private static final long serialVersionUID = 11;
 	private String RazonSocial;
 	
 	@Column(name="Direccion", nullable = false, length = 60)
-	private String Correo;
+	private String Direccion;
 	
 	@Column(name="Distrito", nullable = false, length = 60)
 	private String Distrito;
@@ -38,13 +38,13 @@ private static final long serialVersionUID = 11;
 		// TODO Auto-generated constructor stub
 	}
 
-	public Empresa(int idEmpresa, String nombre, int rUC, String razonSocial, String correo, String distrito) {
+	public Empresa(int idEmpresa, String nombre, int rUC, String razonSocial, String direccion, String distrito) {
 		super();
 		this.idEmpresa = idEmpresa;
 		Nombre = nombre;
 		RUC = rUC;
 		RazonSocial = razonSocial;
-		Correo = correo;
+		Direccion = direccion;
 		Distrito = distrito;
 	}
 
@@ -80,12 +80,12 @@ private static final long serialVersionUID = 11;
 		RazonSocial = razonSocial;
 	}
 
-	public String getCorreo() {
-		return Correo;
+	public String getDireccion() {
+		return Direccion;
 	}
 
-	public void setCorreo(String correo) {
-		Correo = correo;
+	public void setDireccion(String direccion) {
+		Direccion = direccion;
 	}
 
 	public String getDistrito() {

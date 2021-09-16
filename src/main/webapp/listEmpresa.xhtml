@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Motores:.
+		.:Listado de Empresas:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Motores</span>
+		<span>Empresas</span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,7 +25,7 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{motorController.nuevoMotor()}"
+							action="#{empresaController.nuevaEmpresa()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
 				</div>
@@ -34,30 +34,40 @@
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
-						<p:dataTable id="lstMotor" var="mot"
-							value="#{motorController.listaMotores}" paginator="true"
+						<p:dataTable id="lstEmpresas" var="mot"
+							value="#{empresaController.listaEmpresas}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{mot.id}">
-								<h:outputText value="#{mot.id}" />
+							<p:column headerText="Id" sortBy="#{mot.idEmpresa}">
+								<h:outputText value="#{mot.idEmpresa}" />
 							</p:column>
 
-							<p:column headerText="Nombre" sortBy="#{mot.nombreMotor}">
-								<h:outputText value="#{mot.nombreMotor}" />
+							<p:column headerText="Nombre " sortBy="#{mot.nombre}">
+								<h:outputText value="#{mot.nombre}" />
 							</p:column>
 							
-							<p:column headerText="Fecha " sortBy="#{mot.fechaMotor}">
-								<h:outputText value="#{mot.fechaMotor}">
-									<f:convertDateTime pattern="dd-MM-yyyy" timeZone="UTC" />
-								</h:outputText>
+							<p:column headerText="RUC " sortBy="#{mot.RUC}">
+								<h:outputText value="#{mot.RUC}" />
+							</p:column>
+							
+							<p:column headerText="Razon Social " sortBy="#{mot.razonSocial}">
+								<h:outputText value="#{mot.razonSocial}" />
+							</p:column>
+							
+							<p:column headerText="Direccion " sortBy="#{mot.direccion}">
+								<h:outputText value="#{mot.direccion}" />
+							</p:column>
+							
+							<p:column headerText="Distrito " sortBy="#{mot.distrito}">
+								<h:outputText value="#{mot.distrito}" />
 							</p:column>
 							
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listMotor" value="Eliminar"
-									actionListener="#{motorController.eliminar(mot)}" />
+								<h:commandLink action="listEmpresas" value="Eliminar"
+									actionListener="#{empresaController.eliminar(mot)}" />
 							</p:column>
 
 						</p:dataTable>

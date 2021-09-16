@@ -33,12 +33,13 @@ public class EmpresaController implements Serializable{
 
 	public String nuevaEmpresa() {
 		this.setEmpresa(new Empresa());
-		return "pais.xhtml";
+		return "empresa.xhtml";
 	}
 	
 	public void insertar() {
 		eService.insertar(empresa);
 		limpiarEmpresa();
+		this.listar();
 	}
 	
 	public void listar() {

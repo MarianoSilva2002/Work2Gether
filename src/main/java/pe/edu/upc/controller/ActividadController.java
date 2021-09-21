@@ -11,11 +11,9 @@ import javax.inject.Named;
 
 import pe.edu.upc.entity.Actividad;
 import pe.edu.upc.entity.Empleado;
-import pe.edu.upc.entity.Jefe;
 import pe.edu.upc.entity.TiempoActividad;
 import pe.edu.upc.service.iActividadService;
 import pe.edu.upc.service.iEmpleadoService;
-import pe.edu.upc.service.iJefeService;
 import pe.edu.upc.service.iTiempoActividadService;
 
 @Named
@@ -28,36 +26,28 @@ public class ActividadController implements Serializable{
 	private iEmpleadoService eService;
 	
 	@Inject
-	private iJefeService jService;
-	
-	@Inject
 	private iTiempoActividadService tService;
 	
 	@Inject
 	private iActividadService aService;
 	
 	private Empleado empleado;
-	private Jefe jefe;
 	private TiempoActividad tiempo;
 	private Actividad actividad;
 	
 	List<Empleado> listaEmpleados;
-	List<Jefe> listaJefes;
 	List<TiempoActividad> listaTiempo;
 	List<Actividad> listaActividad;
 	
 	
 	@PostConstruct
 	public void init() {		
-		this.listaJefes = new ArrayList<Jefe>();
 		this.listaTiempo = new ArrayList<TiempoActividad>();	
 		this.listaEmpleados = new ArrayList<Empleado>();
 		this.listaActividad = new ArrayList<Actividad>();
-		this.jefe = new Jefe();
 		this.tiempo= new TiempoActividad();
 		this.empleado = new Empleado();
 		this.actividad = new Actividad();
-		this.listar();
 		this.listarTiempo();
 		this.listarEmpleado();
 		this.listarActividad();
@@ -72,10 +62,6 @@ public class ActividadController implements Serializable{
 		aService.insertar(actividad);		
 		limpiarActividad();
 		this.listarActividad();
-	}
-	
-	public void listar() {
-		listaJefes = jService.listar();
 	}
 
 	public void listarTiempo() {
@@ -108,14 +94,6 @@ public class ActividadController implements Serializable{
 		this.eService = eService;
 	}
 
-	public iJefeService getjService() {
-		return jService;
-	}
-
-	public void setjService(iJefeService jService) {
-		this.jService = jService;
-	}
-
 	public iTiempoActividadService gettService() {
 		return tService;
 	}
@@ -140,14 +118,6 @@ public class ActividadController implements Serializable{
 		this.empleado = empleado;
 	}
 
-	public Jefe getJefe() {
-		return jefe;
-	}
-
-	public void setJefe(Jefe jefe) {
-		this.jefe = jefe;
-	}
-
 	public TiempoActividad getTiempo() {
 		return tiempo;
 	}
@@ -170,14 +140,6 @@ public class ActividadController implements Serializable{
 
 	public void setListaEmpleados(List<Empleado> listaEmpleados) {
 		this.listaEmpleados = listaEmpleados;
-	}
-
-	public List<Jefe> getListaJefes() {
-		return listaJefes;
-	}
-
-	public void setListaJefes(List<Jefe> listaJefes) {
-		this.listaJefes = listaJefes;
 	}
 
 	public List<TiempoActividad> getListaTiempo() {

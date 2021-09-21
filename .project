@@ -16,7 +16,6 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-<<<<<<< Updated upstream
 			<name>org.jboss.tools.jst.web.kb.kbbuilder</name>
 			<arguments>
 			</arguments>
@@ -27,10 +26,7 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.jboss.tools.ws.jaxrs.metamodelBuilder</name>
-=======
 			<name>org.eclipse.wst.validation.validationbuilder</name>
->>>>>>> Stashed changes
 			<arguments>
 			</arguments>
 		</buildCommand>
@@ -54,7 +50,7 @@
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 		<nature>org.jboss.tools.jst.web.kb.kbnature</nature>
 		<nature>org.jboss.tools.cdi.core.cdinature</nature>
-		<nature>org.jboss.tools.jsf.jsfnature</nature>
 		<nature>org.jboss.tools.ws.jaxrs.nature</nature>
+		<nature>org.jboss.tools.jsf.jsfnature</nature>
 	</natures>
 </projectDescription>

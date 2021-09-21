@@ -7,8 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+
 import javax.persistence.Table;
 
 @Entity
@@ -26,10 +25,6 @@ public class KPI implements Serializable{
 	
 	@Column(name="CantidadEstimada", nullable = false)
 	private int CantidadEstimada;
-	
-	@ManyToOne
-	@JoinColumn(name="idJefe", nullable = false)
-	private Jefe jefe;
 
 	public KPI() {
 		super();
@@ -41,7 +36,6 @@ public class KPI implements Serializable{
 		this.idKPI = idKPI;
 		Nombre = nombre;
 		CantidadEstimada = cantidadEstimada;
-		this.jefe = jefe;
 	}
 
 	public int getIdKPI() {
@@ -66,14 +60,6 @@ public class KPI implements Serializable{
 
 	public void setCantidadEstimada(int cantidadEstimada) {
 		CantidadEstimada = cantidadEstimada;
-	}
-
-	public Jefe getJefe() {
-		return jefe;
-	}
-
-	public void setJefe(Jefe jefe) {
-		this.jefe = jefe;
 	}
 
 }

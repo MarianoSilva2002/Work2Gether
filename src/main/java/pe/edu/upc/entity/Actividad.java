@@ -42,10 +42,6 @@ public class Actividad implements Serializable{
 	
 	@Column(name="Estado", nullable = false, length = 50)
 	private String Estado;
-	
-	@ManyToOne
-	@JoinColumn(name="idJefe", nullable = false)
-	private Jefe jefe;
 
 	@ManyToOne
 	@JoinColumn(name="idEmpleado", nullable = false)
@@ -71,7 +67,6 @@ public class Actividad implements Serializable{
 		FechaLimite = fechaLimite;
 		Prioridad = prioridad;
 		Estado = estado;
-		this.jefe = jefe;
 		this.empleado = empleado;
 		this.tiempo = tiempo;
 	}
@@ -138,14 +133,6 @@ public class Actividad implements Serializable{
 
 	public void setEstado(String estado) {
 		Estado = estado;
-	}
-
-	public Jefe getJefe() {
-		return jefe;
-	}
-
-	public void setJefe(Jefe jefe) {
-		this.jefe = jefe;
 	}
 
 	public Empleado getEmpleado() {

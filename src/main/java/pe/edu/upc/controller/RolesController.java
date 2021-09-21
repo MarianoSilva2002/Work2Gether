@@ -9,9 +9,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.entity.Jefe;
 import pe.edu.upc.entity.Roles;
-import pe.edu.upc.service.iJefeService;
 import pe.edu.upc.service.iRolesService;
 
 @Named
@@ -23,23 +21,14 @@ public class RolesController implements Serializable{
 	@Inject
 	private iRolesService rService;
 	
-	@Inject
-	private iJefeService jService;
-	
 	private Roles roles;
-	private Jefe jefe;
-	
 	
 	List<Roles> listaRoles;
-	List<Jefe> listaJefes;
 	
 	@PostConstruct
 	public void init() {		
-		this.listaJefes = new ArrayList<Jefe>();
 		this.listaRoles = new ArrayList<Roles>();		
-		this.jefe = new Jefe();
 		this.roles= new Roles();		
-		this.listar();
 		this.listarRol();
 	}
 
@@ -52,10 +41,6 @@ public class RolesController implements Serializable{
 		rService.insertar(roles);		
 		limpiarRol();
 		this.listarRol();
-	}
-	
-	public void listar() {
-		listaJefes = jService.listar();
 	}
 
 	public void listarRol() {
@@ -78,14 +63,6 @@ public class RolesController implements Serializable{
 		this.rService = rService;
 	}
 
-	public iJefeService getjService() {
-		return jService;
-	}
-
-	public void setjService(iJefeService jService) {
-		this.jService = jService;
-	}
-
 	public Roles getRoles() {
 		return roles;
 	}
@@ -94,28 +71,12 @@ public class RolesController implements Serializable{
 		this.roles = roles;
 	}
 
-	public Jefe getJefe() {
-		return jefe;
-	}
-
-	public void setJefe(Jefe jefe) {
-		this.jefe = jefe;
-	}
-
 	public List<Roles> getListaRoles() {
 		return listaRoles;
 	}
 
 	public void setListaRoles(List<Roles> listaRoles) {
 		this.listaRoles = listaRoles;
-	}
-
-	public List<Jefe> getListaJefes() {
-		return listaJefes;
-	}
-
-	public void setListaJefes(List<Jefe> listaJefes) {
-		this.listaJefes = listaJefes;
 	}
 
 }

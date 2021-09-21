@@ -37,10 +37,6 @@ public class Mensajes implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="idEmpleado", nullable = false)
 	private Empleado empleado;
-	
-	@ManyToOne
-	@JoinColumn(name="idJefe", nullable = false)
-	private Jefe jefe;
 
 	public Mensajes() {
 		super();
@@ -56,7 +52,6 @@ public class Mensajes implements Serializable{
 		Emisor_id = emisor_id;
 		Receptor_id = receptor_id;
 		this.empleado = empleado;
-		this.jefe = jefe;
 	}
 
 	public int getIdMensaje() {
@@ -106,13 +101,4 @@ public class Mensajes implements Serializable{
 	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
-
-	public Jefe getJefe() {
-		return jefe;
-	}
-
-	public void setJefe(Jefe jefe) {
-		this.jefe = jefe;
-	}
-
 }

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Jefes:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Jefe</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="id" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="id"
+				styleClass="form-control" value="#{jefeController.jefe.idJefe}"
+				required="true" />
+				
+			<h:outputLabel for="nombreMotor" value="Nombre Jefe"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombreJefe"
+				styleClass="form-control"
+				value="#{jefeController.jefe.nombre}" maxlength="60"
+				required="true" />
+
+			<h:outputLabel for="APaterno" value="Apellido Paterno " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="APaterno"
+				styleClass="form-control"
+				value="#{jefeController.jefe.APaterno}" maxlength="60"
+				required="true" />
+		
+			<h:outputLabel for="AMaterno" value="Apellido Materno" styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="AMaterno"
+				styleClass="form-control" value="#{jefeController.jefe.AMaterno}" maxlength="60"
+				required="true" />
+				
+			<h:outputLabel for="genero" value="Genero " styleClass="control-label" />
+
+				<p:selectOneMenu id="cboGenero" value="#{jefeController.jefe.genero}">
+                    <f:selectItem itemLabel="Selecciona uno" itemValue=""/>
+                    <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
+                    <f:selectItem itemLabel="Femenino" itemValue="Femenino"/>
+                </p:selectOneMenu>
+			<br />
+			
+			<h:outputLabel for="correo" value="Correo Electronico" styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="correo"
+				styleClass="form-control" value="#{jefeController.jefe.correo}" maxlength="60"
+				required="true" />
+				
+			<h:outputLabel for="contrasena" value="Contraseña " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="contrasena"
+				styleClass="form-control" value="#{jefeController.jefe.contrasena}" maxlength="60"
+				required="true" />
+	
+			<h:outputLabel for="contrasena2" value="Repetir Contraseña " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="contrasena2"
+				styleClass="form-control" value="" maxlength="60"
+				required="true" />
+	
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{jefeController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listJefe?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listJefe?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

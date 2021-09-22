@@ -44,7 +44,7 @@ public class JefeController implements Serializable{
 
 	public String nuevoJefe() {
 		this.setJefe(new Jefe());
-		return "parte.xhtml";
+		return "jefe.xhtml";
 	}
 	
 	public void insertar() {

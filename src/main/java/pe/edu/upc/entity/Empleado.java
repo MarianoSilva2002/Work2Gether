@@ -138,5 +138,75 @@ public class Empleado implements Serializable{
 		this.rol = rol;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((AMaterno == null) ? 0 : AMaterno.hashCode());
+		result = prime * result + ((APaterno == null) ? 0 : APaterno.hashCode());
+		result = prime * result + ((Contrasena == null) ? 0 : Contrasena.hashCode());
+		result = prime * result + ((Correo == null) ? 0 : Correo.hashCode());
+		result = prime * result + ((Genero == null) ? 0 : Genero.hashCode());
+		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
+		result = prime * result + idEmpleado;
+		result = prime * result + ((jefe == null) ? 0 : jefe.hashCode());
+		result = prime * result + ((rol == null) ? 0 : rol.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado other = (Empleado) obj;
+		if (AMaterno == null) {
+			if (other.AMaterno != null)
+				return false;
+		} else if (!AMaterno.equals(other.AMaterno))
+			return false;
+		if (APaterno == null) {
+			if (other.APaterno != null)
+				return false;
+		} else if (!APaterno.equals(other.APaterno))
+			return false;
+		if (Contrasena == null) {
+			if (other.Contrasena != null)
+				return false;
+		} else if (!Contrasena.equals(other.Contrasena))
+			return false;
+		if (Correo == null) {
+			if (other.Correo != null)
+				return false;
+		} else if (!Correo.equals(other.Correo))
+			return false;
+		if (Genero == null) {
+			if (other.Genero != null)
+				return false;
+		} else if (!Genero.equals(other.Genero))
+			return false;
+		if (Nombre == null) {
+			if (other.Nombre != null)
+				return false;
+		} else if (!Nombre.equals(other.Nombre))
+			return false;
+		if (idEmpleado != other.idEmpleado)
+			return false;
+		if (jefe == null) {
+			if (other.jefe != null)
+				return false;
+		} else if (!jefe.equals(other.jefe))
+			return false;
+		if (rol == null) {
+			if (other.rol != null)
+				return false;
+		} else if (!rol.equals(other.rol))
+			return false;
+		return true;
+	}
+
 	
 }

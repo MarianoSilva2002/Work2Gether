@@ -21,27 +21,31 @@ public class Jefe implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idJefe;
 	
-	@Column(name="Nombre", nullable = false, length = 60)
-	private String Nombre;
+	@Column(name="nombre", nullable = false, length = 60)
+	private String nombre;
 	
-	@Column(name="ApellidoPaterno", nullable = false, length = 60)
-	private String APaterno;
+	@Column(name="apellidoPaterno", nullable = false, length = 60)
+	private String aPaterno;
 	
-	@Column(name="ApellidoMaterno", nullable = false, length = 60)
-	private String AMaterno;
+	@Column(name="apellidoMaterno", nullable = false, length = 60)
+	private String aMaterno;
 	
-	@Column(name="Genero", nullable = false, length = 50)
-	private String Genero;
+	@Column(name="genero", nullable = false, length = 50)
+	private String genero;
 	
-	@Column(name="Correo", nullable = false, length = 60)
-	private String Correo;
+	@Column(name="correo", nullable = false, length = 60)
+	private String correo;
 	
-	@Column(name="Contrasena", nullable = false, length = 60)
-	private String Contrasena;
+	@Column(name="contrasena", nullable = false, length = 60)
+	private String contrasena;
 	
 	@ManyToOne
 	@JoinColumn(name="idEmpresa", nullable = false)
 	private Empresa empresa;
+	
+	@ManyToOne
+	@JoinColumn(name="idRol", nullable = false)
+	private Roles rol;
 
 	public Jefe() {
 		super();
@@ -49,16 +53,17 @@ public class Jefe implements Serializable{
 	}
 
 	public Jefe(int idJefe, String nombre, String aPaterno, String aMaterno, String genero, String correo,
-			String contrasena, Empresa empresa) {
+			String contrasena, Empresa empresa, Roles rol) {
 		super();
 		this.idJefe = idJefe;
-		Nombre = nombre;
-		APaterno = aPaterno;
-		AMaterno = aMaterno;
-		Genero = genero;
-		Correo = correo;
-		Contrasena = contrasena;
+		this.nombre = nombre;
+		this.aPaterno = aPaterno;
+		this.aMaterno = aMaterno;
+		this.genero = genero;
+		this.correo = correo;
+		this.contrasena = contrasena;
 		this.empresa = empresa;
+		this.rol = rol;
 	}
 
 	public int getIdJefe() {
@@ -70,51 +75,51 @@ public class Jefe implements Serializable{
 	}
 
 	public String getNombre() {
-		return Nombre;
+		return nombre;
 	}
 
 	public void setNombre(String nombre) {
-		Nombre = nombre;
+		this.nombre = nombre;
 	}
 
-	public String getAPaterno() {
-		return APaterno;
+	public String getaPaterno() {
+		return aPaterno;
 	}
 
-	public void setAPaterno(String aPaterno) {
-		APaterno = aPaterno;
+	public void setaPaterno(String aPaterno) {
+		this.aPaterno = aPaterno;
 	}
 
-	public String getAMaterno() {
-		return AMaterno;
+	public String getaMaterno() {
+		return aMaterno;
 	}
 
-	public void setAMaterno(String aMaterno) {
-		AMaterno = aMaterno;
+	public void setaMaterno(String aMaterno) {
+		this.aMaterno = aMaterno;
 	}
 
 	public String getGenero() {
-		return Genero;
+		return genero;
 	}
 
 	public void setGenero(String genero) {
-		Genero = genero;
+		this.genero = genero;
 	}
 
 	public String getCorreo() {
-		return Correo;
+		return correo;
 	}
 
 	public void setCorreo(String correo) {
-		Correo = correo;
+		this.correo = correo;
 	}
 
 	public String getContrasena() {
-		return Contrasena;
+		return contrasena;
 	}
 
 	public void setContrasena(String contrasena) {
-		Contrasena = contrasena;
+		this.contrasena = contrasena;
 	}
 
 	public Empresa getEmpresa() {
@@ -125,5 +130,14 @@ public class Jefe implements Serializable{
 		this.empresa = empresa;
 	}
 
+	public Roles getRol() {
+		return rol;
+	}
+
+	public void setRol(Roles rol) {
+		this.rol = rol;
+	}
+
+	
 	
 }

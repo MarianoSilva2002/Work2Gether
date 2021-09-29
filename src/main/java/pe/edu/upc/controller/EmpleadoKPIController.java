@@ -74,7 +74,7 @@ public class EmpleadoKPIController implements Serializable{
 
 	public String nuevoEmpleadoKPI() {
 		this.setEmpleadoKPI(new Empleado_KPI());
-		return "parte.xhtml";
+		return "empleadoKPI.xhtml";
 	}
 	
 	public void insertar() {
@@ -111,46 +111,6 @@ public class EmpleadoKPIController implements Serializable{
 	public void eliminar(Empleado_KPI empleadoKPI) {
 		ekService.eliminar(empleadoKPI.getIdEmpleado_KPI());
 		this.listarEmpleadoKPI();
-	}
-
-	public iEmpleadoService geteService() {
-		return eService;
-	}
-
-	public void seteService(iEmpleadoService eService) {
-		this.eService = eService;
-	}
-
-	public iMesService getmService() {
-		return mService;
-	}
-
-	public void setmService(iMesService mService) {
-		this.mService = mService;
-	}
-
-	public iKPIService getkService() {
-		return kService;
-	}
-
-	public void setkService(iKPIService kService) {
-		this.kService = kService;
-	}
-
-	public iAnioService getaService() {
-		return aService;
-	}
-
-	public void setaService(iAnioService aService) {
-		this.aService = aService;
-	}
-
-	public iEmpleadoKPIService getEkService() {
-		return ekService;
-	}
-
-	public void setEkService(iEmpleadoKPIService ekService) {
-		this.ekService = ekService;
 	}
 
 	public Empleado getEmpleado() {

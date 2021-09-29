@@ -22,7 +22,7 @@ private static final long serialVersionUID = 11;
 	private String Nombre;
 	
 	@Column(name="RUC", nullable = false)
-	private int RUC;
+	private long RUC;
 	
 	@Column(name="Razon_Social", nullable = false, length = 60)
 	private String RazonSocial;
@@ -38,7 +38,7 @@ private static final long serialVersionUID = 11;
 		// TODO Auto-generated constructor stub
 	}
 
-	public Empresa(int idEmpresa, String nombre, int rUC, String razonSocial, String direccion, String distrito) {
+	public Empresa(int idEmpresa, String nombre, long rUC, String razonSocial, String direccion, String distrito) {
 		super();
 		this.idEmpresa = idEmpresa;
 		Nombre = nombre;
@@ -64,11 +64,11 @@ private static final long serialVersionUID = 11;
 		Nombre = nombre;
 	}
 
-	public int getRUC() {
+	public long getRUC() {
 		return RUC;
 	}
 
-	public void setRUC(int rUC) {
+	public void setRUC(long rUC) {
 		RUC = rUC;
 	}
 
@@ -96,4 +96,54 @@ private static final long serialVersionUID = 11;
 		Distrito = distrito;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Direccion == null) ? 0 : Direccion.hashCode());
+		result = prime * result + ((Distrito == null) ? 0 : Distrito.hashCode());
+		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
+		result = prime * result + (int) (RUC ^ (RUC >>> 32));
+		result = prime * result + ((RazonSocial == null) ? 0 : RazonSocial.hashCode());
+		result = prime * result + idEmpresa;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empresa other = (Empresa) obj;
+		if (Direccion == null) {
+			if (other.Direccion != null)
+				return false;
+		} else if (!Direccion.equals(other.Direccion))
+			return false;
+		if (Distrito == null) {
+			if (other.Distrito != null)
+				return false;
+		} else if (!Distrito.equals(other.Distrito))
+			return false;
+		if (Nombre == null) {
+			if (other.Nombre != null)
+				return false;
+		} else if (!Nombre.equals(other.Nombre))
+			return false;
+		if (RUC != other.RUC)
+			return false;
+		if (RazonSocial == null) {
+			if (other.RazonSocial != null)
+				return false;
+		} else if (!RazonSocial.equals(other.RazonSocial))
+			return false;
+		if (idEmpresa != other.idEmpresa)
+			return false;
+		return true;
+	}
+
+	
 }

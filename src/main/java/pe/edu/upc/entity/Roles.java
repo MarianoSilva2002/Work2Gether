@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,10 +21,6 @@ public class Roles implements Serializable{
 	
 	@Column(name="Nombre", nullable = false, length = 60)
 	private String Nombre;
-	
-	@ManyToOne
-	@JoinColumn(name="idJefe", nullable = false)
-	private Jefe jefe;
 
 	public Roles() {
 		super();
@@ -37,7 +31,6 @@ public class Roles implements Serializable{
 		super();
 		this.idRol = idRol;
 		Nombre = nombre;
-		this.jefe = jefe;
 	}
 
 	public int getIdRol() {
@@ -56,14 +49,32 @@ public class Roles implements Serializable{
 		Nombre = nombre;
 	}
 
-	public Jefe getJefe() {
-		return jefe;
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((Nombre == null) ? 0 : Nombre.hashCode());
+		result = prime * result + idRol;
+		return result;
 	}
 
-	public void setJefe(Jefe jefe) {
-		this.jefe = jefe;
-	}
-
-	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Roles other = (Roles) obj;
+		if (Nombre == null) {
+			if (other.Nombre != null)
+				return false;
+		} else if (!Nombre.equals(other.Nombre))
+			return false;
+		if (idRol != other.idRol)
+			return false;
+		return true;
+	}	
 	
 }

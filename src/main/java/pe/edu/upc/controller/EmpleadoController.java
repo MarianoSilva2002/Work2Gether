@@ -55,7 +55,7 @@ public class EmpleadoController implements Serializable{
 
 	public String nuevoEmpleado() {
 		this.setEmpleado(new Empleado());
-		return "parte.xhtml";
+		return "empleado.xhtml";
 	}
 	
 	public void insertar() {
@@ -83,30 +83,6 @@ public class EmpleadoController implements Serializable{
 	public void eliminar(Empleado empleado) {
 		eService.eliminar(empleado.getIdEmpleado());
 		this.listarEmpleado();
-	}
-
-	public iEmpleadoService geteService() {
-		return eService;
-	}
-
-	public void seteService(iEmpleadoService eService) {
-		this.eService = eService;
-	}
-
-	public iJefeService getjService() {
-		return jService;
-	}
-
-	public void setjService(iJefeService jService) {
-		this.jService = jService;
-	}
-
-	public iRolesService getrService() {
-		return rService;
-	}
-
-	public void setrService(iRolesService rService) {
-		this.rService = rService;
 	}
 
 	public Empleado getEmpleado() {

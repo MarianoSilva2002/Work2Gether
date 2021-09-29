@@ -55,14 +55,6 @@ public class EmpresaController implements Serializable{
 		this.listar();
 	}
 
-	public iEmpresaService geteService() {
-		return eService;
-	}
-
-	public void seteService(iEmpresaService eService) {
-		this.eService = eService;
-	}
-
 	public Empresa getEmpresa() {
 		return empresa;
 	}

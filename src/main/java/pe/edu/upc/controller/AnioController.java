@@ -33,7 +33,7 @@ public class AnioController implements Serializable{
 
 	public String nuevaAnio() {
 		this.setAnio(new Anio());
-		return "pais.xhtml";
+		return "anio.xhtml";
 	}
 	
 	public void insertar() {
@@ -52,14 +52,6 @@ public class AnioController implements Serializable{
 	public void eliminar(Anio anio) {
 		aService.eliminar(anio.getIdAnio());
 		this.listar();
-	}
-
-	public iAnioService getaService() {
-		return aService;
-	}
-
-	public void setaService(iAnioService aService) {
-		this.aService = aService;
 	}
 
 	public Anio getAnio() {

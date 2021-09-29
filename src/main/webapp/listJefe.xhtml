@@ -50,12 +50,12 @@
 								<h:outputText value="#{par.nombre}" />
 							</p:column>
 							
-							<p:column headerText="Apellido Paterno" sortBy="#{par.APaterno}">
-								<h:outputText value="#{par.APaterno}" />
+							<p:column headerText="Apellido Paterno" sortBy="#{par.aPaterno}">
+								<h:outputText value="#{par.aPaterno}" />
 							</p:column>
 							
-							<p:column headerText="Apellido Materno" sortBy="#{par.AMaterno}">
-								<h:outputText value="#{par.AMaterno}" />
+							<p:column headerText="Apellido Materno" sortBy="#{par.aMaterno}">
+								<h:outputText value="#{par.aMaterno}" />
 							</p:column>
 							
 							<p:column headerText="Genero" sortBy="#{par.genero}">
@@ -71,7 +71,11 @@
 							</p:column>
 							
 							<p:column headerText="Empresa">
-								<h:outputText value="#{par.empresa.idEmpresa}" />
+								<h:outputText value="#{par.empresa.nombre}" />
+							</p:column>
+							
+							<p:column headerText="Rol">
+								<h:outputText value="#{par.rol.nombre}" />
 							</p:column>
 							
 							<p:column headerText="Operación" exportable="false">

@@ -30,7 +30,7 @@ public class Actividad implements Serializable{
 	private String Descripcion;
 	
 	@Column(name="HorasEstimadas", nullable = false)
-	private Date HorasEstimadas;
+	private int HorasEstimadas;
 	
 	@Column(name="HorasInvertidas", nullable = true)
 	private Date HorasInvertidas;
@@ -57,7 +57,7 @@ public class Actividad implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Actividad(int idActividad, String nombre, String descripcion, Date horasEstimadas, Date horasInvertidas,
+	public Actividad(int idActividad, String nombre, String descripcion, int horasEstimadas, Date horasInvertidas,
 			Date fechaLimite, Boolean prioridad, String estado, Jefe jefe, Empleado empleado, TiempoActividad tiempo) {
 		super();
 		this.idActividad = idActividad;
@@ -96,11 +96,11 @@ public class Actividad implements Serializable{
 		Descripcion = descripcion;
 	}
 
-	public Date getHorasEstimadas() {
+	public int getHorasEstimadas() {
 		return HorasEstimadas;
 	}
 
-	public void setHorasEstimadas(Date horasEstimadas) {
+	public void setHorasEstimadas(int horasEstimadas) {
 		HorasEstimadas = horasEstimadas;
 	}
 

@@ -19,13 +19,13 @@ private static final long serialVersionUID = 11;
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int idTiempoActividad;
 	
-	@Column(name="HoraInicio", nullable = false)
+	@Column(name="HoraInicio", nullable = true)
 	private Date HoraInicio;
 	
 	@Column(name="HoraFin", nullable = true)
 	private Date HoraFin;
 	
-	@Column(name="DiaInicio", nullable = false)
+	@Column(name="DiaInicio", nullable = true)
 	private Date DiaInicio;
 	
 	@Column(name="DiaFinal", nullable = true)

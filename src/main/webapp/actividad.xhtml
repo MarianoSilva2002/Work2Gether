@@ -17,7 +17,6 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="id" value="Id " styleClass="control-label" />
 				
 			<h:outputLabel for="nombreActividad" value="Nombre Actividad"
 				styleClass="control-label" />
@@ -47,11 +46,10 @@
 				timeZone="UTC" required="true">
 			</p:calendar>
 				
+				
+			<br />
+			
 			<h:outputLabel for="prioridad" value="Prioridad " styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="prioridad"
-				styleClass="form-control" value="#{actividadController.actividad.prioridad}"
-				required="true" />
 	
 			<p:selectOneButton value="#{actividadController.actividad.prioridad}">
             	<f:selectItem itemLabel="Si" itemValue="Si"/>
@@ -68,20 +66,13 @@
 			</p:selectOneMenu>
 			<br />
 			<br />
-			<p:outputLabel for="cboRol" value="Rol" />
-			<p:selectOneMenu id="cboRol" value="#{empleadoController.empleado.rol}"
-				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{jefeController.listaRoles}" var = "d" 
-					itemLabel="#{d.nombre}" itemValue="#{d}"/>
-								
-			</p:selectOneMenu>
 			<br />
 			<p:commandButton value="Grabar"
-				actionListener="#{jefeController.insertar()}"
+				actionListener="#{actividadController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listEmpleados?faces-redirect=true" />
+				action="listActividad?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listEmpleados?faces-redirect=true" immediate="true"
+				action="listActividad?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />

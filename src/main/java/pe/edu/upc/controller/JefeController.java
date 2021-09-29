@@ -15,6 +15,7 @@ import pe.edu.upc.entity.Roles;
 import pe.edu.upc.service.iEmpresaService;
 import pe.edu.upc.service.iJefeService;
 import pe.edu.upc.service.iRolesService;
+import pe.edu.upc.util.Message;
 
 @Named
 @RequestScoped
@@ -39,6 +40,8 @@ public class JefeController implements Serializable{
 	List<Empresa> listaEmpresas;
 	List<Roles> listaRoles;
 	
+	private String repetircontrasena;
+	
 	@PostConstruct
 	public void init() {		
 		this.listaJefes = new ArrayList<Jefe>();
@@ -58,9 +61,16 @@ public class JefeController implements Serializable{
 	}
 	
 	public void insertar() {
-		jService.insertar(jefe);		
-		limpiarJefe();
-		this.listarJefe();
+		if(repetircontrasena == jefe.getContrasena())
+		{
+			jService.insertar(jefe);		
+			limpiarJefe();
+			this.listarJefe();
+		}
+		else 
+		{
+			Message.messageError("La contraseña ingresada no es la misma. Intente de nuevo.");
+		}
 	}
 	
 	public void listar() {

@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -47,7 +48,7 @@ public class Actividad implements Serializable{
 	@JoinColumn(name="idEmpleado", nullable = false)
 	private Empleado empleado;
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="idTiempoActividad", nullable = false)
 	private TiempoActividad tiempo;
 	

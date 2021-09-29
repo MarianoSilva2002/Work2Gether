@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Paises:.
+		.:Listado de KPIs:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Paises</span>
+		<span>KPI</span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,7 +25,7 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{paisController.nuevoPais()}"
+							action="#{kPIController.nuevoKPI()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
 				</div>
@@ -35,28 +35,28 @@
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 					
-						<p:dataTable id="lstPais" var="pais"
-							value="#{paisController.listaPaises}" paginator="true"
+						<p:dataTable id="lstKPI" var="KPI"
+							value="#{kPIController.listaKPIs}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{pais.idPais}">
-								<h:outputText value="#{pais.idPais}" />
+							<p:column headerText="Id" sortBy="#{KPI.idKPI}">
+								<h:outputText value="#{KPI.idKPI}" />
 							</p:column>
 
-							<p:column headerText="Nombre Pais" sortBy="#{pais.nombrePais}">
-								<h:outputText value="#{pais.nombrePais}" />
+							<p:column headerText="Nombre KPI" sortBy="#{KPI.nombre}">
+								<h:outputText value="#{KPI.nombre}" />
 							</p:column>
 							
-							<p:column headerText="Nombre Continente" sortBy="#{pais.nombreContinente}">
-								<h:outputText value="#{pais.nombreContinente}" />
+							<p:column headerText="Cantidad Estimada" sortBy="#{KPI.cantidadEstimada}">
+								<h:outputText value="#{KPI.cantidadEstimada}" />
 							</p:column>
 							
 							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listPais" value="Eliminar"
-									actionListener="#{paisController.eliminar(pais)}" />
+									actionListener="#{kPIController.eliminar(KPI)}" />
 							</p:column>
 
 						</p:dataTable>

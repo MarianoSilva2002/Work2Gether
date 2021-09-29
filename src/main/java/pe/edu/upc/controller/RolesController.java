@@ -34,7 +34,7 @@ public class RolesController implements Serializable{
 
 	public String nuevoRol() {
 		this.setRoles(new Roles());
-		return "parte.xhtml";
+		return "rol.xhtml";
 	}
 	
 	public void insertar() {
@@ -53,14 +53,6 @@ public class RolesController implements Serializable{
 	public void eliminar(Roles rol) {
 		rService.eliminar(rol.getIdRol());
 		this.listarRol();
-	}
-
-	public iRolesService getrService() {
-		return rService;
-	}
-
-	public void setrService(iRolesService rService) {
-		this.rService = rService;
 	}
 
 	public Roles getRoles() {

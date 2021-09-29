@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Paises:.
+		.:Listado de Actividades:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Paises</span>
+		<span>Actividades</span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,7 +25,7 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{paisController.nuevoPais()}"
+							action="#{actividadController.nuevaActividad()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
 				</div>
@@ -35,28 +35,52 @@
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 					
-						<p:dataTable id="lstPais" var="pais"
-							value="#{paisController.listaPaises}" paginator="true"
+						<p:dataTable id="lstActividad" var="actividad"
+							value="#{actividadController.listaActividad}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{pais.idPais}">
-								<h:outputText value="#{pais.idPais}" />
+							<p:column headerText="Id" sortBy="#{actividad.idActividad}">
+								<h:outputText value="#{actividad.idActividad}" />
 							</p:column>
 
-							<p:column headerText="Nombre Pais" sortBy="#{pais.nombrePais}">
-								<h:outputText value="#{pais.nombrePais}" />
+							<p:column headerText="Nombre Actividad" sortBy="#{actividad.nombre}">
+								<h:outputText value="#{actividad.nombre}" />
 							</p:column>
 							
-							<p:column headerText="Nombre Continente" sortBy="#{pais.nombreContinente}">
-								<h:outputText value="#{pais.nombreContinente}" />
+							<p:column headerText="Descripcion" sortBy="#{actividad.descripcion}">
+								<h:outputText value="#{actividad.descripcion}" />
+							</p:column>
+							
+							<p:column headerText="HorasEstimadas" sortBy="#{actividad.horasEstimadas}">
+								<h:outputText value="#{actividad.horasEstimadas}" />
+							</p:column>
+							
+							<p:column headerText="HorasInvertidas" sortBy="#{actividad.horasInvertidas}">
+								<h:outputText value="#{actividad.horasInvertidas}" />
+							</p:column>
+							
+							<p:column headerText="Fecha Límite" sortBy="#{actividad.fechaLimite}">
+								<h:outputText value="#{actividad.fechaLimite}" />
+							</p:column>
+							
+							<p:column headerText="Prioridad" sortBy="#{actividad.prioridad}">
+								<h:outputText value="#{actividad.prioridad}" />
+							</p:column>
+							
+							<p:column headerText="Estado" sortBy="#{actividad.estado}">
+								<h:outputText value="#{actividad.estado}" />
+							</p:column>
+							
+							<p:column headerText="Empleado" sortBy="#{actividad.empleado.nombre}">
+								<h:outputText value="#{actividad.empleado.nombre}" />
 							</p:column>
 							
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listPais" value="Eliminar"
-									actionListener="#{paisController.eliminar(pais)}" />
+								<h:commandLink action="listActividad" value="Eliminar"
+									actionListener="#{actividadController.eliminar(actividad)}" />
 							</p:column>
 
 						</p:dataTable>

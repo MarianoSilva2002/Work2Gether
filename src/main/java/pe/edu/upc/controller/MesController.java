@@ -33,7 +33,7 @@ public class MesController implements Serializable{
 
 	public String nuevaMes() {
 		this.setMes(new Mes());
-		return "pais.xhtml";
+		return "mes.xhtml";
 	}
 	
 	public void insertar() {
@@ -52,14 +52,6 @@ public class MesController implements Serializable{
 	public void eliminar(Mes mes) {
 		mService.eliminar(mes.getIdMes());
 		this.listar();
-	}
-
-	public iMesService getmService() {
-		return mService;
-	}
-
-	public void setmService(iMesService mService) {
-		this.mService = mService;
 	}
 
 	public Mes getMes() {

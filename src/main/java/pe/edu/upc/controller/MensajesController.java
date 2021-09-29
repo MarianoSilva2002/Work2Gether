@@ -45,7 +45,7 @@ public class MensajesController implements Serializable{
 
 	public String nuevoMensaje() {
 		this.setMensaje(new Mensajes());
-		return "parte.xhtml";
+		return "mensajes.xhtml";
 	}
 	
 	public void insertar() {
@@ -69,22 +69,6 @@ public class MensajesController implements Serializable{
 	public void eliminar(Mensajes mensaje) {
 		mService.eliminar(mensaje.getIdMensaje());
 		this.listarMensaje();
-	}
-
-	public iEmpleadoService geteService() {
-		return eService;
-	}
-
-	public void seteService(iEmpleadoService eService) {
-		this.eService = eService;
-	}
-
-	public iMensajesService getmService() {
-		return mService;
-	}
-
-	public void setmService(iMensajesService mService) {
-		this.mService = mService;
 	}
 
 	public Empleado getEmpleado() {

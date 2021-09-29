@@ -35,7 +35,7 @@ public class KPIController implements Serializable{
 
 	public String nuevoKPI() {
 		this.setKpi(new KPI());
-		return "parte.xhtml";
+		return "KPI.xhtml";
 	}
 	
 	public void insertar() {
@@ -56,13 +56,6 @@ public class KPIController implements Serializable{
 		this.listarKPI();
 	}
 
-	public iKPIService getkService() {
-		return kService;
-	}
-
-	public void setkService(iKPIService kService) {
-		this.kService = kService;
-	}
 
 	public KPI getKpi() {
 		return kpi;

@@ -55,7 +55,7 @@ public class ActividadController implements Serializable{
 
 	public String nuevoActividad() {
 		this.setActividad(new Actividad());
-		return "parte.xhtml";
+		return "actividad.xhtml";
 	}
 	
 	public void insertar() {
@@ -84,30 +84,6 @@ public class ActividadController implements Serializable{
 	public void eliminar(Actividad actividad) {
 		aService.eliminar(actividad.getIdActividad());
 		this.listarActividad();
-	}
-
-	public iEmpleadoService geteService() {
-		return eService;
-	}
-
-	public void seteService(iEmpleadoService eService) {
-		this.eService = eService;
-	}
-
-	public iTiempoActividadService gettService() {
-		return tService;
-	}
-
-	public void settService(iTiempoActividadService tService) {
-		this.tService = tService;
-	}
-
-	public iActividadService getaService() {
-		return aService;
-	}
-
-	public void setaService(iActividadService aService) {
-		this.aService = aService;
 	}
 
 	public Empleado getEmpleado() {

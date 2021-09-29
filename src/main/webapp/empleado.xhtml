@@ -8,11 +8,11 @@
 <ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Registro de Jefes:.
+        .:Registro de Empleados:.
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Jefe</span>
+		<span>Empleados</span>
 	</ui:define>
 
 	<ui:define name="content">
@@ -20,33 +20,33 @@
 			<h:outputLabel for="id" value="Id " styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="id"
-				styleClass="form-control" value="#{jefeController.jefe.idJefe}"
+				styleClass="form-control" value="#{empleadoController.empleado.idEmpleado}"
 				required="true" />
 				
-			<h:outputLabel for="nombreMotor" value="Nombre Jefe"
+			<h:outputLabel for="nombreMotor" value="Nombre Empleado"
 				styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="nombreJefe"
 				styleClass="form-control"
-				value="#{jefeController.jefe.nombre}" maxlength="60"
+				value="#{empleadoController.empleado.nombre}" maxlength="60"
 				required="true" />
 
 			<h:outputLabel for="APaterno" value="Apellido Paterno " styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="APaterno"
 				styleClass="form-control"
-				value="#{jefeController.jefe.aPaterno}" maxlength="60"
+				value="#{empleadoController.empleado.APaterno}" maxlength="60"
 				required="true" />
 		
 			<h:outputLabel for="AMaterno" value="Apellido Materno" styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="AMaterno"
-				styleClass="form-control" value="#{jefeController.jefe.aMaterno}" maxlength="60"
+				styleClass="form-control" value="#{empleadoController.empleado.AMaterno}" maxlength="60"
 				required="true" />
 				
 			<h:outputLabel for="genero" value="Genero " styleClass="control-label" />
 
-				<p:selectOneMenu id="cboGenero" value="#{jefeController.jefe.genero}">
+				<p:selectOneMenu id="cboGenero" value="#{empleadoController.empleado.genero}">
                     <f:selectItem itemLabel="Selecciona uno" itemValue=""/>
                     <f:selectItem itemLabel="Masculino" itemValue="Masculino"/>
                     <f:selectItem itemLabel="Femenino" itemValue="Femenino"/>
@@ -56,33 +56,33 @@
 			<h:outputLabel for="correo" value="Correo Electronico" styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="correo"
-				styleClass="form-control" value="#{jefeController.jefe.correo}" maxlength="60"
+				styleClass="form-control" value="#{empleadoController.empleado.correo}" maxlength="60"
 				required="true" />
 				
 			<h:outputLabel for="contrasena" value="Contraseña " styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="contrasena" type="password"
-				styleClass="form-control" value="#{jefeController.jefe.contrasena}" maxlength="60"
+			<p:inputText autocomplete="off" id="contrasena"
+				styleClass="form-control" value="#{empleadoController.empleado.contrasena}" maxlength="60"
 				required="true" />
 	
 			<h:outputLabel for="contrasena2" value="Repetir Contraseña " styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="contrasena2" type="password"
+			<p:inputText autocomplete="off" id="contrasena2"
 				styleClass="form-control" match="contrasena" maxlength="60"
 				required="true" />
 	
 			<br />
-			<p:outputLabel for="cboEmpresa" value="Empresa" />
-			<p:selectOneMenu id="cboEmpresa" value="#{jefeController.jefe.empresa}"
+			<p:outputLabel for="cboJefe" value="Jefe" />
+			<p:selectOneMenu id="cboJefe" value="#{empleadoController.empleado.jefe}"
 				converter="omnifaces.SelectItemsConverter">
-				<f:selectItems value="#{jefeController.listaEmpresas}" var = "e" 
+				<f:selectItems value="#{empleadoController.listaJefes}" var = "e" 
 					itemLabel="#{e.nombre}" itemValue="#{e}"/>
 								
 			</p:selectOneMenu>
 			<br />
 			<br />
 			<p:outputLabel for="cboRol" value="Rol" />
-			<p:selectOneMenu id="cboRol" value="#{jefeController.jefe.rol}"
+			<p:selectOneMenu id="cboRol" value="#{empleadoController.empleado.rol}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{jefeController.listaRoles}" var = "d" 
 					itemLabel="#{d.nombre}" itemValue="#{d}"/>
@@ -90,11 +90,11 @@
 			</p:selectOneMenu>
 			<br />
 			<p:commandButton value="Grabar"
-				actionListener="#{jefeController.insertar()}"
+				actionListener="#{empleadoController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listJefe?faces-redirect=true" />
+				action="listEmpleado?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listJefe?faces-redirect=true" immediate="true"
+				action="listEmpleado?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />

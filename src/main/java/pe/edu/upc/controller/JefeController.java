@@ -11,8 +11,10 @@ import javax.inject.Named;
 
 import pe.edu.upc.entity.Empresa;
 import pe.edu.upc.entity.Jefe;
+import pe.edu.upc.entity.Roles;
 import pe.edu.upc.service.iEmpresaService;
 import pe.edu.upc.service.iJefeService;
+import pe.edu.upc.service.iRolesService;
 
 @Named
 @RequestScoped
@@ -26,20 +28,28 @@ public class JefeController implements Serializable{
 	@Inject
 	private iEmpresaService eService;
 	
+	@Inject
+	private iRolesService rService;
+	
 	private Jefe jefe;
 	private Empresa empresa;
+	private Roles rol;
 	
 	List<Jefe> listaJefes;
 	List<Empresa> listaEmpresas;
+	List<Roles> listaRoles;
 	
 	@PostConstruct
 	public void init() {		
 		this.listaJefes = new ArrayList<Jefe>();
-		this.listaEmpresas = new ArrayList<Empresa>();		
+		this.listaEmpresas = new ArrayList<Empresa>();	
+		this.listaRoles = new ArrayList<Roles>();
 		this.jefe = new Jefe();
 		this.empresa= new Empresa();		
+		this.rol = new Roles();
 		this.listar();
 		this.listarJefe();
+		this.listarRoles();
 	}
 
 	public String nuevoJefe() {
@@ -60,6 +70,10 @@ public class JefeController implements Serializable{
 	public void listarJefe() {
 		listaJefes = jService.listar();
 	}	
+	public void listarRoles() {
+		listaRoles = rService.listar();
+	}
+
 	public void limpiarJefe() {
 		this.init();
 	}
@@ -67,22 +81,6 @@ public class JefeController implements Serializable{
 	public void eliminar(Jefe jefe) {
 		jService.eliminar(jefe.getIdJefe());
 		this.listarJefe();
-	}
-
-	public iJefeService getjService() {
-		return jService;
-	}
-
-	public void setjService(iJefeService jService) {
-		this.jService = jService;
-	}
-
-	public iEmpresaService geteService() {
-		return eService;
-	}
-
-	public void seteService(iEmpresaService eService) {
-		this.eService = eService;
 	}
 
 	public Jefe getJefe() {
@@ -101,6 +99,14 @@ public class JefeController implements Serializable{
 		this.empresa = empresa;
 	}
 
+	public Roles getRol() {
+		return rol;
+	}
+
+	public void setRol(Roles rol) {
+		this.rol = rol;
+	}
+
 	public List<Jefe> getListaJefes() {
 		return listaJefes;
 	}
@@ -116,5 +122,15 @@ public class JefeController implements Serializable{
 	public void setListaEmpresas(List<Empresa> listaEmpresas) {
 		this.listaEmpresas = listaEmpresas;
 	}
+
+	public List<Roles> getListaRoles() {
+		return listaRoles;
+	}
+
+	public void setListaRoles(List<Roles> listaRoles) {
+		this.listaRoles = listaRoles;
+	}
+
+
 	
 }

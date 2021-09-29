@@ -103,4 +103,53 @@ public class Empleado_KPI implements Serializable{
 		Cantidad = cantidad;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + Cantidad;
+		result = prime * result + ((anio == null) ? 0 : anio.hashCode());
+		result = prime * result + ((empleado == null) ? 0 : empleado.hashCode());
+		result = prime * result + idEmpleado_KPI;
+		result = prime * result + ((kpi == null) ? 0 : kpi.hashCode());
+		result = prime * result + ((mes == null) ? 0 : mes.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado_KPI other = (Empleado_KPI) obj;
+		if (Cantidad != other.Cantidad)
+			return false;
+		if (anio == null) {
+			if (other.anio != null)
+				return false;
+		} else if (!anio.equals(other.anio))
+			return false;
+		if (empleado == null) {
+			if (other.empleado != null)
+				return false;
+		} else if (!empleado.equals(other.empleado))
+			return false;
+		if (idEmpleado_KPI != other.idEmpleado_KPI)
+			return false;
+		if (kpi == null) {
+			if (other.kpi != null)
+				return false;
+		} else if (!kpi.equals(other.kpi))
+			return false;
+		if (mes == null) {
+			if (other.mes != null)
+				return false;
+		} else if (!mes.equals(other.mes))
+			return false;
+		return true;
+	}
+
 }

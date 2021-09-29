@@ -33,7 +33,7 @@ public class TiempoActividadController implements Serializable{
 
 	public String nuevaTiempo() {
 		this.setTiempo(new TiempoActividad());
-		return "pais.xhtml";
+		return "TiempoActividad.xhtml";
 	}
 	
 	public void insertar() {
@@ -52,14 +52,6 @@ public class TiempoActividadController implements Serializable{
 	public void eliminar(TiempoActividad tiempo) {
 		tService.eliminar(tiempo.getIdTiempoActividad());
 		this.listar();
-	}
-
-	public iTiempoActividadService gettService() {
-		return tService;
-	}
-
-	public void settService(iTiempoActividadService tService) {
-		this.tService = tService;
 	}
 
 	public TiempoActividad getTiempo() {

@@ -2,6 +2,7 @@ package pe.edu.upc.controller;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -59,6 +60,10 @@ public class ActividadController implements Serializable{
 	}
 	
 	public void insertar() {
+		actividad.setEstado("Pendiente");
+		tService.insertar(tiempo);
+		this.listarTiempo();
+		actividad.setTiempo(listaTiempo.get(listaTiempo.size()));
 		aService.insertar(actividad);		
 		limpiarActividad();
 		this.listarActividad();

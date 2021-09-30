@@ -10,11 +10,11 @@
 <ui:composition template="master.xhtml"> 
 	
 	<ui:define name="title">
-		.:Listado de Paises:.
+		.:Registro de Productividad:.
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Paises</span>
+		<span>Empleado_KPI</span>
 	</ui:define>
 	
 	<ui:define name="content">
@@ -25,7 +25,7 @@
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
-							action="#{paisController.nuevoPais()}"
+							action="#{empleadoKPIController.nuevoEmpleadoKPI()}"
 							styleClass="btn btn-primary ajax=false" />
 					</div>
 				</div>
@@ -35,28 +35,38 @@
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 					
-						<p:dataTable id="lstPais" var="pais"
-							value="#{paisController.listaPaises}" paginator="true"
+						<p:dataTable id="LstEmpleadoKPI" var="kpi"
+							value="#{empleadoKPIController.listaEmpleadosKPI}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{pais.idPais}">
-								<h:outputText value="#{pais.idPais}" />
+							<p:column headerText="idEmpleado_KPI" sortBy="#{kpi.idEmpleado_KPI}">
+								<h:outputText value="#{kpi.idEmpleado_KPI}" /> 
 							</p:column>
 
-							<p:column headerText="Nombre Pais" sortBy="#{pais.nombrePais}">
-								<h:outputText value="#{pais.nombrePais}" />
+							<p:column headerText="KPI" sortBy="#{kpi.kpi.nombre}">
+								<h:outputText value="#{kpi.kpi.nombre}" />
 							</p:column>
 							
-							<p:column headerText="Nombre Continente" sortBy="#{pais.nombreContinente}">
-								<h:outputText value="#{pais.nombreContinente}" />
+							<p:column headerText="Empleado" sortBy="#{kpi.empleado.nombre}">
+								<h:outputText value="#{kpi.empleado.nombre}" />
 							</p:column>
+							<p:column headerText="Mes" sortBy="#{kpi.mes.mes}"> 
+								<h:outputText value="#{kpi.mes.mes}" />
+							</p:column>
+							<p:column headerText="Año" sortBy="#{kpi.anio.anio}">
+								<h:outputText value="#{kpi.anio.anio}" />
+							</p:column>
+							<p:column headerText="Cantidad" sortBy="#{kpi.cantidad}">
+								<h:outputText value="#{kpi.cantidad}" /> 
+							</p:column>
+							
 							
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="listPais" value="Eliminar"
-									actionListener="#{paisController.eliminar(pais)}" />
+								<h:commandLink action="LstEmpleadoKPI" value="Eliminar"
+									actionListener="#{EmpleadoKPIController.eliminar(kpi)}" /> 
 							</p:column>
 
 						</p:dataTable>

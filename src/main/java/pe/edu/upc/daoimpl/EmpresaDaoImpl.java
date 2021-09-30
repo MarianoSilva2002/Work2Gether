@@ -45,4 +45,10 @@ public class EmpresaDaoImpl implements iEmpresaDao, Serializable{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Transactional
+	@Override
+	public void editar (Empresa empresa) {
+		em.merge(empresa);
+	}
 }

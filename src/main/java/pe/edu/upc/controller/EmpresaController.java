@@ -22,6 +22,7 @@ public class EmpresaController implements Serializable{
 	private iEmpresaService eService;
 	
 	private Empresa empresa;
+	private int id;
 	List<Empresa> listaEmpresas;
 	
 	@PostConstruct
@@ -55,12 +56,39 @@ public class EmpresaController implements Serializable{
 		this.listar();
 	}
 
+	public String editarEmpresa() {
+		this.setEmpresa(listaEmpresas.get(id-1));
+		return "empresa.xhtml";
+	}
+	
+	public void editar() {
+		eService.editar(empresa);
+		limpiarEmpresa();
+		this.listar();
+	}
+
+	public iEmpresaService geteService() {
+		return eService;
+	}
+
+	public void seteService(iEmpresaService eService) {
+		this.eService = eService;
+	}
+
 	public Empresa getEmpresa() {
 		return empresa;
 	}
 
 	public void setEmpresa(Empresa empresa) {
 		this.empresa = empresa;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public List<Empresa> getListaEmpresas() {

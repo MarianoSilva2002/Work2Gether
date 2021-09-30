@@ -65,12 +65,6 @@
 				styleClass="form-control" value="#{empleadoController.empleado.contrasena}" maxlength="60"
 				required="true" />
 	
-			<h:outputLabel for="contrasena2" value="Repetir Contraseña " styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="contrasena2"
-				styleClass="form-control" match="contrasena" maxlength="60"
-				required="true" />
-	
 			<br />
 			<p:outputLabel for="cboJefe" value="Jefe" />
 			<p:selectOneMenu id="cboJefe" value="#{empleadoController.empleado.jefe}"

@@ -8,62 +8,59 @@
 <ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Registro de Empresas:.
+        .:Registro de Mensajes:.
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Empresa</span>
+		<span>Mensaje</span>
 	</ui:define>
 
 	<ui:define name="content">
-		<h:form>
-			<h:outputLabel for="id" value="Id " styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="id"
-				styleClass="form-control" value="#{empresaController.empresa.idEmpresa}"
-				required="true" />
+		<h:form>				
+			<h:outputLabel for="mensaje" value="mensaje" styleClass="control-label" />
 				
-			<h:outputLabel for="nombreMotor" value="Nombre Empresa"
-				styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="nombreEmpresa"
+			<p:inputText autocomplete="off" id="mensaje"
 				styleClass="form-control"
-				value="#{empresaController.empresa.nombre}" maxlength="60"
+				value="#{mensajesController.mensaje.mensaje}" maxlength="1000"
 				required="true" />
-
-			<h:outputLabel for="RUC" value="RUC " styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="RUC"
-				styleClass="form-control" value="#{empresaController.empresa.RUC}"
+				
+			<h:outputLabel for="fechaMensaje" value="Fecha Mensaje" styleClass="control-label" />
+			
+			<p:calendar id="FLimite" pattern="dd/MM/yyyy"
+				value="#{mensajesController.mensaje.fechaMensaje}" showOn="button"
+				timeZone="UTC" required="true">
+			</p:calendar>
+			<br />
+			
+			<h:outputLabel for="emisor_id" value="Emisor_id" styleClass="control-label" />
+			
+			<p:inputText autocomplete="off" id="emisor_id"
+				styleClass="form-control" value="#{mensajesController.mensaje.emisor_id}"
 				required="true" />
+				
+			<h:outputLabel for="receptor_id" value="Receptor_id" styleClass="control-label" />
+			
+			<p:inputText autocomplete="off" id="receptor_id"
+				styleClass="form-control" value="#{mensajesController.mensaje.receptor_id}"
+				required="true" />
+				
+			<p:outputLabel for="cboRol" value="empleado" />
+			<p:selectOneMenu id="cboRol" value="#{mensajesController.mensaje.empleado}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{mensajesController.listaEmpleados}" var = "d" 
+					itemLabel="#{d.nombre}" itemValue="#{d}"/>
+								
+			</p:selectOneMenu>
 		
-			<h:outputLabel for="razonsocial" value="Razon Social" styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="razonsocial"
-				styleClass="form-control" value="#{empresaController.empresa.razonSocial}" maxlength="60"
-				required="true" />
-				
-			<h:outputLabel for="direccion" value="Direccion" styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="direccion"
-				styleClass="form-control" value="#{empresaController.empresa.direccion}" maxlength="60"
-				required="true" />
-				
-			<h:outputLabel for="distrito" value="Distrito" styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="distrito"
-				styleClass="form-control" value="#{empresaController.empresa.distrito}" maxlength="60"
-				required="true" />
-				
 			<br />
 
 
 			<p:commandButton value="Grabar"
-				actionListener="#{empresaController.insertar()}"
+				actionListener="#{mensajesController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listEmpresa?faces-redirect=true" />
+				action="listMensajes?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listEmpresa?faces-redirect=true" immediate="true"
+				action="listMensajes?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />

@@ -40,8 +40,6 @@ public class JefeController implements Serializable{
 	List<Empresa> listaEmpresas;
 	List<Roles> listaRoles;
 	
-	private String repetircontrasena;
-	
 	@PostConstruct
 	public void init() {		
 		this.listaJefes = new ArrayList<Jefe>();
@@ -61,16 +59,9 @@ public class JefeController implements Serializable{
 	}
 	
 	public void insertar() {
-		if(repetircontrasena == jefe.getContrasena())
-		{
-			jService.insertar(jefe);		
-			limpiarJefe();
-			this.listarJefe();
-		}
-		else 
-		{
-			Message.messageError("La contraseña ingresada no es la misma. Intente de nuevo.");
-		}
+		jService.insertar(jefe);		
+		limpiarJefe();
+		this.listarJefe();
 	}
 	
 	public void listar() {
@@ -139,8 +130,7 @@ public class JefeController implements Serializable{
 
 	public void setListaRoles(List<Roles> listaRoles) {
 		this.listaRoles = listaRoles;
-	}
-
-
+	}	
+	
 	
 }

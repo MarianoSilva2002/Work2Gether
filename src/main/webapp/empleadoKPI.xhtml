@@ -17,34 +17,56 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="id" value="Id " styleClass="control-label" />
+		
+		<p:outputLabel for="idkpi" value="kpi" />
+			<p:selectOneMenu id="idkpi" value="#{empleadoKPIController.empleadoKPI.kpi}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{empleadoKPIController.listaKPI}" var = "e" 
+					itemLabel="#{e.nombre}" itemValue="#{e}"/>
+								
+			</p:selectOneMenu>
+			<br />
+			<br />
+			<p:outputLabel for="idempleado" value="Empleado" />
+			<p:selectOneMenu id="idempleado" value="#{empleadoKPIController.empleadoKPI.empleado}" 
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{empleadoKPIController.listaEmpleados}" var = "d" 
+					itemLabel="#{d.nombre}" itemValue="#{d}"/>
+								
+			</p:selectOneMenu>
+			<br />
+			<br />
+			
+			<p:outputLabel for="idmes" value="mes" />
+			<p:selectOneMenu id="idmes" value="#{empleadoKPIController.empleadoKPI.mes}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{empleadoKPIController.listaMeses}" var = "e" 
+					itemLabel="#{e.mes}" itemValue="#{e}"/>
+								
+			</p:selectOneMenu>
+			<br />
+			<br />
+			<p:outputLabel for="idanio" value="anio" />
+			<p:selectOneMenu id="idanio" value="#{empleadoKPIController.empleadoKPI.anio}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{empleadoKPIController.listaAnios}" var = "d" 
+					itemLabel="#{d.anio}" itemValue="#{d}"/>
+								
+			</p:selectOneMenu>
+			<br />
+			<br />
+			<h:outputLabel for="id" value="Cantidad " styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="id"
-				styleClass="form-control" value="#{kPIController.kpi.idKPI}"
-				required="true" />
-				
-			<h:outputLabel for="nombreRol" value="Nombre KPI"
-				styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="nombreKPI"
-				styleClass="form-control"
-				value="#{kPIController.kpi.nombre}" maxlength="60"
-				required="true" />
-				
-				<h:outputLabel for="cantEstimada" value="Cantidad Estimada"
-				styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="cantEstimada"
-				styleClass="form-control"
-				value="#{kPIController.kpi.cantidadEstimada}" maxlength="60"
+				styleClass="form-control" value="#{empleadoKPIController.empleadoKPI.cantidad}"
 				required="true" />
 			
 			<p:commandButton value="Grabar"
-				actionListener="#{kPIController.insertar()}"
+				actionListener="#{empleadoKPIController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listKPI?faces-redirect=true" />
+				action="listEmpleadoKPI?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listKPI?faces-redirect=true" immediate="true"
+				action="listEmpleadoKPI?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />

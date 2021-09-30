@@ -63,7 +63,7 @@ public class ActividadController implements Serializable{
 		actividad.setEstado("Pendiente");
 		tService.insertar(tiempo);
 		this.listarTiempo();
-		actividad.setTiempo(listaTiempo.get(listaTiempo.size()));
+		actividad.setTiempo(listaTiempo.get(listaTiempo.size()-1));
 		aService.insertar(actividad);		
 		limpiarActividad();
 		this.listarActividad();

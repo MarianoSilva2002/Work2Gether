@@ -17,11 +17,6 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="id" value="Id " styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="id"
-				styleClass="form-control" value="#{empresaController.empresa.idEmpresa}"
-				required="true" />
 				
 			<h:outputLabel for="nombreMotor" value="Nombre Empresa"
 				styleClass="control-label" />
@@ -61,6 +56,10 @@
 			<p:commandButton value="Grabar"
 				actionListener="#{empresaController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
+				action="listEmpresa?faces-redirect=true" />
+			<p:commandButton value="Editar"
+				actionListener="#{empresaController.editar()}"
+				styleClass="btn btn-warning " update="@form"
 				action="listEmpresa?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
 				action="listEmpresa?faces-redirect=true" immediate="true"

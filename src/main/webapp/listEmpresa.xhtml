@@ -21,16 +21,34 @@
 		<h:form>
 		
 			<div class="row">
-				<div class="col-sm-8 text-right">
+				<div class="col-sm-10 text-right">
 					<div class="form-group box-main-btn">
 						<span style="display: block; height:30px;"></span>
 						<p:commandButton value="Nuevo"						
 							action="#{empresaController.nuevaEmpresa()}"
 							styleClass="btn btn-primary ajax=false" />
+							<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Editar"						
+							action="#{empresaController.editarEmpresa()}"
+							styleClass="btn btn-primary ajax=false" />
+					</div>
+					<br />
+			<br />
+			<br />
+			<br />
+					<div class="form-group box-main-btn">
+						<h:outputLabel for="IDEmpresa" value="ID Empresa"
+							styleClass="control-label" />
+
+						<p:inputText autocomplete="off" id="IDEmpresa"
+							styleClass="form-control"
+							value="#{empresaController.id}"
+							required="true" />
 					</div>
 				</div>
 			</div>
-
+			<br />
+			<br />
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
@@ -66,10 +84,15 @@
 							</p:column>
 							
 							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listEmpresas" value="Editar"
+									actionListener="#{empresaController.editarEmpresa()}" />
+							</p:column>
+
+							<p:column headerText="Operación" exportable="false">
 								<h:commandLink action="listEmpresas" value="Eliminar"
 									actionListener="#{empresaController.eliminar(mot)}" />
 							</p:column>
-
+							
 						</p:dataTable>
 					</div>
 				</div>				

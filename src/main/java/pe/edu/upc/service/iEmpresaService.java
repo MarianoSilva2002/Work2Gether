@@ -8,4 +8,5 @@ public interface iEmpresaService {
 	public void insertar(Empresa empresa);
 	public List<Empresa> listar();
 	public void eliminar(int idEmpresa);
+	public void editar(Empresa empresa);
 }

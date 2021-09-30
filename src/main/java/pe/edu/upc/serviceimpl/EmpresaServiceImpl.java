@@ -37,5 +37,9 @@ public class EmpresaServiceImpl implements iEmpresaService, Serializable {
 		eD.eliminar(idEmpresa);
 	}
 	
+	@Override
+	public void editar(Empresa empresa){
+		eD.editar(empresa);
+	}
 	
 }
